@@ -1,0 +1,30 @@
+% !TeX program = pdflatex
+% !BIB program = bibtex
+% ICASSP 2027 submission source built from the official ICASSP 2027 kit.
+% Official archive:
+% https://cmsworkshops.com/ICASSP2027/papers/PaperFormat/ICASSP2027_Paper_Templates.zip
+% Official spconf.sty and IEEEbib.bst are included unchanged.
+% Release package and scientific manuscript body: v110 (2026-09-04).
+% --------------------------------------------------------------------------
+\documentclass{article}
+\usepackage{spconf,amsmath,amssymb,graphicx,booktabs,array,hyperref}
+\hypersetup{hidelinks}
+\name{Seunghun Oh$^{1}$\qquad Unsang Park$^{2}$}
+\address{$^{1}$Department of Artificial Intelligence, Sogang University, Seoul, Republic of Korea\\
+  $^{2}$Department of Computer Science and Engineering, Sogang University, Seoul, Republic of Korea}
+\let\srvrabstract\abstract
+\let\endsrvrabstract\endabstract
+\renewenvironment{abstract}{\maketitle\srvrabstract}{\endsrvrabstract}
+
+\begin{document}
+\ninept
+\input{paper.tex}
+
+\clearpage
+\section{Acknowledgements}
+This work was supported by the Institute of Information \& Communications Technology Planning \& Evaluation (IITP) grant funded by the Korea government (MSIT) (No.~RS-2024-00438027, Development of an intelligent security and risk response system based on multi-modal data integration analysis), and by the IITP under the Artificial Intelligence Innovation Human Resources Development grant (IITP-RS-2026-25547954) funded by the Korea government (MSIT).
+
+\bibliographystyle{IEEEbib}
+\bibliography{refs,chronusomni_reference_v1}
+
+\end{document}

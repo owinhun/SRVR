@@ -1,0 +1,14 @@
+\begin{tabular}{@{}llrrrrr@{}}
+\toprule
+& & \multicolumn{2}{c}{No reference} & \multicolumn{2}{c}{Reference} & \\
+\cmidrule(lr){3-4}\cmidrule(lr){5-6}
+Model & Interface & Waveform off & Waveform on & Waveform off & Waveform on & $\Delta_{int}$ \\
+\midrule
+Qwen3-Omni & numeric & 47.1 & 60.8 & \textbf{90.0} & 86.6 & $-17.2$ \\
+Qwen2.5-Omni & numeric & 46.7 & 52.9 & \textbf{74.2} & 59.1 & $-21.3$ \\
+ChronusOmni & numeric & 47.1 & 68.4 & \textbf{86.6} & 80.8 & $-27.1$ \\
+Phi-4-multimodal & numeric & 45.4 & 48.1 & 57.4 & 61.5 & $+1.4$ \\
+video-SALMONN-2 & localized & 47.4 & 45.7 & \textbf{81.4} & 80.1 & $+0.3$ \\
+VideoLLaMA2.1$^\dagger$ & localized & 51.2 & 41.2 & \textbf{77.3} & 67.7 & $+0.3$ \\
+\bottomrule
+\end{tabular}
