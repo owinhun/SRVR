@@ -3,7 +3,7 @@
 > [!IMPORTANT]
 > **Submitted to ICASSP 2027 — under review.** No acceptance or publication is claimed.
 
-**[Project Page](https://owinhun.github.io/REPO_NAME/)** · **[Manuscript PDF]((https://github.com/owinhun/SRVR/blob/main/paper.pdf))**
+**[Project Page]([https://owinhun.github.io/REPO_NAME/](https://github.com/owinhun/SRVR/blob/main/proj/proj.html))** · **[Manuscript PDF]((https://github.com/owinhun/SRVR/blob/main/paper.pdf))**
 
 **Seunghun Oh\* · Jaehong Myung\* · Unsang Park†**  
 \* Equal contribution · † Corresponding author  
