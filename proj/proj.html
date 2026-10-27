@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f7fafb" />
+  <meta name="description" content="A factorial diagnostic study of what waveform audio adds after a speech-time reference is supplied to audio-visual language models. ICASSP 2027 manuscript under review." />
+  <title>What Does Waveform Audio Add? · Research Project</title>
+  <style>
+    :root{--ink:#18283a;--muted:#576b7b;--blue:#1e657f;--teal:#087e79;--line:#dce6e9;--pale:#f4f9fa;--navy:#132738;--warm:#fffaef}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#fff;color:var(--ink);font:16px/1.68 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+    a{color:var(--blue)}a:focus-visible{outline:3px solid #43aeba;outline-offset:4px}.container{max-width:1080px;padding:0 28px;margin:0 auto}
+    .top{border-bottom:1px solid var(--line);background:#fff}.top .container{min-height:74px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{font-weight:850;letter-spacing:-.6px;font-size:19px;text-decoration:none;color:var(--ink)}.brand em{font-style:normal;color:var(--teal)}nav{display:flex;flex-wrap:wrap;gap:23px}nav a{text-decoration:none;font-size:13px;color:#56687a;font-weight:700}nav a:hover{color:var(--teal)}
+    .hero{background:radial-gradient(circle at 12% 0%,#e3f6f3,transparent 40%),radial-gradient(circle at 95% 20%,#eaf3fc,transparent 40%),linear-gradient(180deg,#f6fafc 0%,#fff 100%);padding:72px 0 74px;text-align:center}
+    .tag{display:inline-block;letter-spacing:1.4px;text-transform:uppercase;font-size:11px;font-weight:850;color:#096e69;border:1px solid #c5e4df;padding:6px 14px;border-radius:100px;background:#eaf8f4}
+    h1{font-size:clamp(34px,4.5vw,55px);max-width:1050px;margin:25px auto 20px;line-height:1.18;letter-spacing:-1.8px;color:var(--navy)}
+    .subtitle{font-size:clamp(18px,2.2vw,22px);line-height:1.55;color:#475e72;max-width:860px;margin:0 auto 25px}
+    .people{font-weight:680;font-size:17px;margin:0}.affiliation{color:var(--muted);font-size:14px;margin:8px auto 27px}.buttons{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+    .btn{display:inline-block;border:1px solid #bed3d6;background:#fff;color:#1b465a;border-radius:10px;padding:11px 22px;min-width:155px;font-size:15px;font-weight:750;text-decoration:none;transition:transform .15s,border-color .15s}.btn:hover{transform:translateY(-2px);border-color:var(--teal)}.btn.primary{background:var(--navy);border-color:var(--navy);color:white}
+    section{padding:62px 0}.eyebrow{color:var(--teal);font-size:12px;font-weight:850;letter-spacing:1.9px;text-transform:uppercase}h2{color:var(--navy);font-size:clamp(27px,3.1vw,35px);letter-spacing:-.9px;line-height:1.25;margin:7px 0 19px}h3{color:var(--navy);font-size:17px;margin:0 0 7px}p{margin:0 0 17px}.lead{font-size:18px;color:#44596c;max-width:900px}
+    .card{padding:34px 38px;border:1px solid #d9e5e8;border-radius:19px;background:#fff;box-shadow:0 17px 48px #142f4010}.soft{background:var(--pale);border-top:1px solid #eaf0f2;border-bottom:1px solid #eaf0f2}
+    .four{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;margin:28px 0 18px}.cell{border:1px solid var(--line);border-radius:14px;padding:23px 26px;background:#fff}.cell .flags{font-size:12px;color:#547384;letter-spacing:.4px;font-weight:700;margin-bottom:11px}.cell h3{font-size:19px}.cell p{font-size:14px;color:#596b7c;margin:0}.cell.focus{background:#eef9f6;border-color:#9ecfc9}.cell.highlight{background:#eff6fb;border-color:#afd0df}
+    .comparison{display:flex;gap:12px;flex-wrap:wrap;align-items:center;border:1px solid #d7e4e7;background:#fff;border-radius:12px;padding:18px 22px;font-size:15px;color:#39536a}.comparison strong{color:#10746f}.pill{background:#e5f6f3;border-radius:8px;padding:3px 11px;font-size:12px;font-weight:800;color:#0a746e}
+    .figure{margin:27px 0 0;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff}.figure img{display:block;width:100%;height:auto;object-fit:contain}.figure figcaption{font-size:13px;color:#607184;border-top:1px solid var(--line);padding:13px 18px;background:#fbfcfd}
+    .features{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px;margin-top:22px}.feature{border:1px solid var(--line);background:#fff;border-radius:13px;padding:23px}.feature .num{color:#118079;font-size:22px;font-weight:900;letter-spacing:-1px;display:block;margin-bottom:10px}.feature p{font-size:14px;color:#5a6e80;margin:0}
+    .scroll{overflow-x:auto}.results{width:100%;border-collapse:collapse;font-size:14px;min-width:680px}.results th{text-align:left;font-size:12px;color:#557184;background:#f0f6f8;letter-spacing:.5px;padding:12px 14px}.results td{border-bottom:1px solid var(--line);padding:12px 14px}.results td:nth-child(n+2){text-align:right;font-variant-numeric:tabular-nums}.results th:nth-child(n+2){text-align:right}.negative{color:#a3412d;font-weight:750}.positive{color:#08746d;font-weight:750}.muted{color:#637385}
+    .point{display:grid;grid-template-columns:1fr 1fr;gap:17px;margin-top:22px}.point article{border:1px solid var(--line);border-radius:13px;padding:23px 25px;background:#fff}.point article p{font-size:15px;color:#526578;margin:0}
+    .caveat{padding:18px 22px;border-left:4px solid #e0b66c;background:var(--warm);color:#5f543f;border-radius:0 10px 10px 0;margin-top:27px;font-size:14px}
+    .resources{background:var(--navy);color:#e3edf3}.resources h2{color:#fff}.resources p{color:#bacbd6}.resources .eyebrow{color:#78d5cd}.resources .btn.primary{background:#fff;color:var(--navy);border-color:#fff}.resources .btn{background:transparent;color:#fff;border-color:#81929f}
+    .footer{border-top:1px solid var(--line);background:#f5f8f9;padding:29px 0;font-size:13px;color:#667889}.footer .container{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    @media(max-width:760px){.container{padding:0 21px}.top .container{padding-top:14px;padding-bottom:14px;flex-direction:column;align-items:flex-start;gap:10px}nav{gap:12px}.hero{padding:52px 0 60px}.card{padding:25px 22px}.four,.features,.point{grid-template-columns:1fr}section{padding:46px 0}h1{letter-spacing:-1.2px}.btn{flex:1;min-width:135px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+  </style>
+</head>
+<body>
+  <header class="top"><div class="container"><a class="brand" href="#top">Temporal <em>Binding</em> / Research</a><nav aria-label="Page navigation"><a href="#question">Question</a><a href="#design">Protocol</a><a href="#results">Results</a><a href="#limitations">Scope</a><a href="#resources">Resources</a></nav></div></header>
+  <main id="top">
+    <div class="hero"><div class="container">
+      <div class="tag">Manuscript submitted to ICASSP 2027 · Under review</div>
+      <h1>What Does Waveform Audio Add Once a Speech-Time Reference Is Given?</h1>
+      <p class="subtitle">A Factorial Study of Cross-Modal Temporal Binding</p>
+      <p class="people">Seunghun Oh* &nbsp;·&nbsp; Jaehong Myung* &nbsp;·&nbsp; Unsang Park†</p>
+      <p class="affiliation">* Equal contribution &nbsp;·&nbsp; † Corresponding author<br/>Sogang University · Department of Artificial Intelligence / Department of Computer Science and Engineering</p>
+      <div class="buttons"><a class="btn primary" href="paper.pdf">Read Manuscript</a><a class="btn" id="github-link" href="#resources">GitHub Repository</a><a class="btn" href="#design">Explore Protocol</a></div>
+    </div></div>
+    <section id="question"><div class="container"><div class="card">
+      <div class="eyebrow">The research question</div><h2>When speech tells us when to look, does hearing it still help?</h2>
+      <p class="lead">Narration can describe a future or past action rather than the action visible <em>at the moment of speech</em>. Waveform audio tells a model both <strong>when speech happens</strong> and <strong>what was spoken</strong>—two roles that conventional audio-removal comparisons cannot separate.</p>
+      <p>We provide an external <strong>speech-time reference</strong> and independently vary whether the waveform is available at answer time. This matched factorial identifies the measured additional effect of waveform access <strong>under a fixed reference</strong>. It does not establish that removing audio is a general remedy.</p>
+      <figure class="figure"><a href="assets/factorial_example.png"><img src="assets/factorial_example.png" alt="Illustrative question: visual current action differs from an action mentioned in speech, with four Qwen3 input conditions" loading="lazy" /></a><figcaption>Illustrative CMTB example. The four predictions depict one item, not aggregate model performance.</figcaption></figure>
+    </div></div></section>
+    <section class="soft" id="design"><div class="container"><div class="eyebrow">Method</div><h2>The same question, four matched inputs</h2><p class="lead">A 2×2 comparison crosses speech-time reference availability with waveform audio access on <strong>291 held-out CMTB items</strong>. An additional 48 items are used only for development.</p>
+      <div class="four">
+        <article class="cell"><div class="flags">REFERENCE OFF · WAVEFORM OFF</div><h3>Y₀₀ · Video-only</h3><p>Video and the unchanged question, without audio or externally supplied speech timing.</p></article>
+        <article class="cell highlight"><div class="flags">REFERENCE OFF · WAVEFORM ON</div><h3>Y₀₁ · Raw AV</h3><p>Audio and video together, without a supplied reference interval.</p></article>
+        <article class="cell focus"><div class="flags">REFERENCE ON · WAVEFORM OFF</div><h3>Y₁₀ · SRVR</h3><p>Speech time supplied while waveform access is removed from the answering input.</p></article>
+        <article class="cell"><div class="flags">REFERENCE ON · WAVEFORM ON</div><h3>Y₁₁ · Reference + Audio</h3><p>The same speech-time reference plus the waveform, compared directly with SRVR.</p></article>
+      </div>
+      <div class="comparison"><span class="pill">Main estimate</span><span><strong>δ₁ = Y₁₁ − Y₁₀</strong> · incremental effect of waveform with speech-time reference fixed</span></div>
+      <div class="features">
+        <article class="feature"><span class="num">291</span><h3>Held-out questions</h3><p>Source-video-disjoint evaluation set from SVHalluc CMTB.</p></article>
+        <article class="feature"><span class="num">6</span><h3>Model configurations</h3><p>Frozen multimodal models evaluated with model-appropriate media formats.</p></article>
+        <article class="feature"><span class="num">2</span><h3>Reference classes</h3><p>Numeric timestamps and localized media, analyzed separately rather than pooled.</p></article>
+      </div>
+      <p style="font-size:13px;color:#627486;margin-top:15px">Numeric references also carry visual-answering instructions, while localized references change supplied media. These are not pure timestamp-only interventions.</p>
+    </div></section>
+    <section id="results"><div class="container"><div class="eyebrow">Primary results</div><h2>Waveform effects are model-dependent</h2><p class="lead">On the main CMTB evaluation, the most robust reference-fixed reduction is observed for Qwen2.5-Omni. Other estimates are smaller, inconclusive, correction-sensitive, or sensitive to parsing failures.</p>
+    <div class="scroll"><table class="results"><thead><tr><th>Model</th><th>Audio off · Y₁₀</th><th>Audio on · Y₁₁</th><th>Waveform effect δ₁</th></tr></thead><tbody>
+      <tr><td>Qwen2.5-Omni</td><td>74.2%</td><td>59.1%</td><td class="negative">−15.1 pp</td></tr>
+      <tr><td>Qwen3-Omni</td><td>90.0%</td><td>86.6%</td><td>−3.4 pp <span class="muted">· inconclusive</span></td></tr>
+      <tr><td>ChronusOmni</td><td>86.6%</td><td>80.8%</td><td>−5.8 pp <span class="muted">· correction-sensitive</span></td></tr>
+      <tr><td>Phi-4-multimodal</td><td>57.4%</td><td>61.5%</td><td class="positive">+4.1 pp <span class="muted">· inconclusive</span></td></tr>
+      <tr><td>Video-SALMONN-2</td><td>81.4%</td><td>80.1%</td><td>−1.4 pp <span class="muted">· inconclusive</span></td></tr>
+      <tr><td>VideoLLaMA2.1</td><td>77.3%</td><td>67.7%</td><td>−9.6 pp <span class="muted">· failure-sensitive</span></td></tr>
+    </tbody></table></div>
+    <figure class="figure"><a href="assets/results_figure.png"><img src="assets/results_figure.png" alt="Paired waveform effects, narrated-choice error rates, and shifted-speech-timestamp accuracy plot" loading="lazy" /></a><figcaption>Main result figure: paired waveform effects, confirmed narrated-choice patterns, and a test that shifts the supplied speech interval.</figcaption></figure>
+    <div class="point">
+      <article><h3>Reference information recovers visual answers</h3><p>With waveform retained, reference additions increase accuracy point estimates by <strong>+6.2 to +26.8 pp</strong> under numeric references and <strong>+26.5 to +34.4 pp</strong> under localized references.</p></article>
+      <article><h3>Qwen2.5 shows the clearest additional cost</h3><p>With the reference fixed, waveform access lowers Qwen2.5 accuracy by <strong>15.1 pp</strong>; a negative direction also appears in its bare-timestamp and localized controls.</p></article>
+      <article><h3>What the controls support</h3><p>Shifting reference timestamps away from speech time sharply lowers video-based accuracy. Error analyses indicate more selections of narrated alternatives, without isolating a single waveform mechanism.</p></article>
+      <article><h3>What external tests do not show</h3><p>On selected-speech <strong>CrossTask (N=93)</strong> and <strong>COIN (N=85)</strong> items, paired tests are inconclusive. No general advantage from removing audio is established.</p></article>
+    </div>
+    </div></section>
+    <section class="soft" id="limitations"><div class="container"><div class="eyebrow">Interpretation</div><h2>A diagnostic comparison, not an audio-off recipe</h2><p class="lead">The factorial is designed to separate the <em>gain from supplying a speech-time reference</em> from the <em>incremental effect of waveform access under that same reference</em>. These are different questions, and a negative interaction is not evidence of an intrinsic audio-harm mechanism.</p>
+      <div class="caveat"><strong>Important limits.</strong> CMTB is a targeted stress test; numeric references include answering instructions; model input pipelines are not identical; some estimates depend on correction choices or failed outputs; and external selected-speech tasks do not reproduce a general removal advantage. The manuscript reports the exact statistical families, controls, and sensitivity analyses.</div>
+    </div></section>
+    <section id="resources" class="resources"><div class="container"><div class="eyebrow">Research resources</div><h2>Manuscript and project materials</h2><p>The manuscript and its figures accompany this Project Page. Experiment scripts, dependencies, model access and end-to-end reproduction instructions should be linked only when publicly released and validated. The paper remains under review.</p><div class="buttons" style="justify-content:flex-start"><a class="btn primary" href="paper.pdf">Manuscript PDF</a><a class="btn" id="github-link-bottom" href="#top">Repository</a><a class="btn" href="#top">Back to top</a></div></div></section>
+  </main>
+  <footer class="footer"><div class="container"><span>Cross-Modal Temporal Binding · ICASSP 2027 submission</span><span>Seunghun Oh · Jaehong Myung · Unsang Park · Sogang University</span></div></footer>
+  <script>
+    // A GitHub Pages project site lives at /REPO_NAME/; derive the repository link locally.
+    (function () {
+      const path = window.location.pathname.split('/').filter(Boolean);
+      if (path.length > 0 && !path[0].includes('.')) {
+        const url = 'https://github.com/owinhun/' + encodeURIComponent(path[0]);
+        for (const id of ['github-link', 'github-link-bottom']) {
+          const node = document.getElementById(id);
+          if (node) node.href = url;
+        }
+      }
+    }());
+  </script>
+</body>
+</html>
