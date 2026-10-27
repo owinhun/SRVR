@@ -1,3 +1,5 @@
+# Project-specific ignore rules
+
 __pycache__/
 *.py[cod]
 *.aux
